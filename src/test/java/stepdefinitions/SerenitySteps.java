@@ -22,6 +22,7 @@ public class SerenitySteps extends UIInteractions {
     @Step("Enter {0} in {1} field")
     public void typeInField(String text, String field, WebElementFacade element) {
         ElementActions.safeType(() -> element, text);
+        waitFor(5).seconds();
     }
     @Step("Click on {0}")
     public void clickOnElement(String description, WebElementFacade element){

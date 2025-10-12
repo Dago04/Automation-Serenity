@@ -1,9 +1,9 @@
 package actions;
 
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.*;
 
+import java.time.Duration;
 import java.util.function.Supplier;
 
 public class ElementActions {

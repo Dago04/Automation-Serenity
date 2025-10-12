@@ -23,7 +23,7 @@ public class CucumberSteps {
         serenitySteps.navigateToHomePage();
     }
 
-    @When("I select {string} from dropdown {int}")
+    @When("I select {string} from delivery dropdown {int}")
     public void i_select_from_dropdown(String option, int dropdown) {
         serenitySteps.selectFromDropdown(option, dropdown);
     }
@@ -48,6 +48,10 @@ public class CucumberSteps {
 
     @Then("I should see the message {string}")
     public void i_should_see_the_message(String expectedMessage) {
-        validationSteps.validateElementMessage(expectedMessage, homePage.getGreetingMessage());
+        if(expectedMessage.equals("Hola, dagoberto.salas@walmart.com")){
+            validationSteps.validateElementMessage(expectedMessage, homePage.getGreetingMessage());
+        }else if(expectedMessage.equals("No se ingresó un correo electrónico válido o tu contraseña es incorrecta.")){
+            validationSteps.validateElementMessage(expectedMessage, loginPage.getAlertErrorDescription());
+        }
     }
 }

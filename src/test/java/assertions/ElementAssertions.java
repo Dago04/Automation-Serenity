@@ -5,12 +5,10 @@ import org.junit.jupiter.api.Assertions;
 
 public class ElementAssertions {
 
-    public static void assertVisible(WebElementFacade element, String mensaje) {
-        Assertions.assertTrue(element.isVisible(), mensaje);
-    }
-
-    public static void assertTextEquals(WebElementFacade element, String textoEsperado, String mensaje) {
-        Assertions.assertEquals(textoEsperado, element.getText(), mensaje);
+    public static void assertVisibleWithText(WebElementFacade element, String expectedText) {
+        element.waitUntilVisible();
+        Assertions.assertTrue(element.isVisible(), "The element is not visible");
+        Assertions.assertEquals(expectedText.trim(), element.getText().trim(), "The text does not match the expected value");
     }
 
     public static void assertEnabled(WebElementFacade element, String mensaje) {
