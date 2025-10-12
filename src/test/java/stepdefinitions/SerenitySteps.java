@@ -1,4 +1,4 @@
-package steps;
+package stepdefinitions;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.WebElementFacade;

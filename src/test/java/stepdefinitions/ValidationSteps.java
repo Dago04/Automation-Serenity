@@ -1,4 +1,4 @@
-package steps;
+package stepdefinitions;
 
 import assertions.ElementAssertions;
 import net.serenitybdd.annotations.Step;

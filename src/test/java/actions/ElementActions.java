@@ -22,7 +22,7 @@ public class ElementActions {
                 System.err.println("[safeClick] Timeout esperando el elemento en el intento " + (i + 1) + ": " + e.getMessage());
                 if (i == retries - 1) throw e;
             } catch (StaleElementReferenceException e) {
-                System.err.println("[safeClick] El elemento está obsoleto (stale) en el intento " + (i + 1) + ". Se volverá a buscar el elemento. " + e.getMessage());
+                System.err.println("[safeClick] El elemento está obsoleto (stale) en el intento " + (i + 1) + ". Se volverá a buscar el elemento: "+ elementSupplier.get().getTagName() + "," + e.getMessage());
                 if (i == retries - 1) throw e;
             } catch (ElementClickInterceptedException e) {
                 System.err.println("[safeClick] El click fue interceptado en el intento " + (i + 1) + ": " + e.getMessage());
