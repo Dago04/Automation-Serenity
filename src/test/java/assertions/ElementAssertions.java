@@ -1,17 +1,16 @@
 package assertions;
 
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.junit.jupiter.api.Assertions;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ElementAssertions {
 
     public static void assertVisibleWithText(WebElementFacade element, String expectedText) {
-        element.waitUntilVisible();
-        Assertions.assertTrue(element.isVisible(), "The element is not visible");
-        Assertions.assertEquals(expectedText.trim(), element.getText().trim(), "The text does not match the expected value");
+        element.shouldBeVisible();
+        assertThat(element.getText().trim()).isEqualTo(expectedText.trim());
     }
 
-    public static void assertEnabled(WebElementFacade element, String mensaje) {
-        Assertions.assertTrue(element.isEnabled(), mensaje);
+    public static void assertEnabled(WebElementFacade element) {
+        element.shouldBeEnabled();
     }
 }
