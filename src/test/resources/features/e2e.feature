@@ -5,20 +5,12 @@ Feature: Walmart Login and Navigation
 
   Scenario: Login with valid credentials
     Given I navigate to the home page
-    When I select "El Progreso" from delivery dropdown 1
-    And I select "El Progreso" from delivery dropdown 2
-    And I click on "Accept Delivery button"
-    And I click on "My Account button"
-    And I enter "Dagoberto.Salas@walmart.com" in "email" field
-    And I enter "G9t#x4VmZ8q@p2L" in "password" field
-    Then I should see the message "Hola, dagoberto.salas@walmart.com"
+    When I select "El Progreso" and "El Progreso" for delivery location
+    And I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2L"
+    Then I should see the message "Hola, Dagoberto"
 
   Scenario: Login with invalid password
     Given I navigate to the home page
-    When I select "El Progreso" from delivery dropdown 1
-    And I select "El Progreso" from delivery dropdown 2
-    And I click on "Accept Delivery button"
-    And I click on "My Account button"
-    And I enter "Dagoberto.Salas@walmart.com" in "email" field
-    And I enter "G9t#x4VmZ8q@p2LTest" in "password" field
+    When I select "El Progreso" and "El Progreso" for delivery location
+    And I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2LError"
     Then I should see the message "No se ingresó un correo electrónico válido o tu contraseña es incorrecta."

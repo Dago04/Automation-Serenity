@@ -12,10 +12,10 @@ public class HomePage extends PageObject {
     private WebElementFacade departmentDropdown;
 
     @FindBy(xpath = "//*[text()='Aceptar']/ancestor::button[@type='button']")
-    private WebElementFacade acceptDeliveryButton;
+    private WebElementFacade btnAcceptDelivery;
 
     @FindBy(xpath = "//*[text()='Entrar']/ancestor::button")
-    private WebElementFacade myAccountButton;
+    private WebElementFacade bntMyAccount;
 
     @FindBy(xpath = "(//*[@class='pr0     flex']/following::span[contains(normalize-space(.), 'Hola')])[2]")
     private WebElementFacade greetingMessage;
@@ -23,18 +23,23 @@ public class HomePage extends PageObject {
     public WebElementFacade getGreetingMessage() {
         return greetingMessage;
     }
-    public WebElementFacade getMyAccountButton(){
-        return myAccountButton;
-    }
-    public WebElementFacade getAcceptDeliveryButton(){
-        return acceptDeliveryButton;
-    }
-    public void selectDropdown(String valor, int indiceSelect) {
+
+    public void selectDropdown(String valor, int index) {
         String xpathOpcion = String.format(
             "//*[text()='Selecciona donde deseas que entreguemos tu pedido']/following::select[%d]/option[normalize-space(text())='%s']",
-            indiceSelect, valor
+                index, valor
         );
         WebElementFacade option = find(By.xpath(xpathOpcion));
         ElementActions.safeClick(() -> option);
+    }
+
+    public void selectDeliveryLocation(String option1, String option2) {
+        selectDropdown(option1, 1);
+        selectDropdown(option2, 2);
+        ElementActions.safeClick(() -> btnAcceptDelivery);
+    }
+
+    public void clickMyAccount(){
+            ElementActions.safeClick(() -> bntMyAccount);
     }
 }

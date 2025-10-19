@@ -5,7 +5,7 @@ import org.openqa.selenium.*;
 import java.util.function.Supplier;
 
 public class ElementActions {
-    // Método self-healing para hacer click
+
     public static void safeClick(Supplier<WebElementFacade> elementSupplier) {
         int retries = 3;
         for (int i = 0; i < retries; i++) {
@@ -36,7 +36,6 @@ public class ElementActions {
         }
     }
 
-    // Método self-healing para escribir texto
     public static void safeType(Supplier<WebElementFacade> elementSupplier, String text) {
         int retries = 3;
         for (int i = 0; i < retries; i++) {

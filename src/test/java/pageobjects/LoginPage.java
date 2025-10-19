@@ -7,22 +7,24 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageObject {
 
+    HomePage homePage;
+
     @FindBy(id = "email")
-    private WebElementFacade emailField;
+    private WebElementFacade txtEmail;
 
     @FindBy(xpath = "//*[text()='Contraseña']/following::input[@type='password']")
-    private WebElementFacade passwordField;
+    private WebElementFacade txtPassword;
 
     @FindBy(xpath = "//*[text()='Bienvenido']/following::span[@class='walmartgt-walmart-components-0-x-alertDescription']")
     private WebElementFacade alertErrorDescription;
 
-    public WebElementFacade getEmailField() {
-        return emailField;
-    }
-    public WebElementFacade getPasswordField() {
-        return passwordField;
-    }
     public WebElementFacade getAlertErrorDescription() {
         return alertErrorDescription;
+    }
+
+    public void userLogin(String email, String password){
+        homePage.clickMyAccount();
+        ElementActions.safeType(() -> txtEmail, email);
+        ElementActions.safeType(() -> txtPassword, password);
     }
 }

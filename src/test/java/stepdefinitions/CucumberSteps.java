@@ -23,32 +23,20 @@ public class CucumberSteps {
         serenitySteps.navigateToHomePage();
     }
 
-    @When("I select {string} from delivery dropdown {int}")
-    public void i_select_from_dropdown(String option, int dropdown) {
-        serenitySteps.selectFromDropdown(option, dropdown);
+
+    @When("I select {string} and {string} for delivery location")
+    public void i_select_for_delivery_location(String option1, String option2) {
+        serenitySteps.selectDeliveryLocation(option1, option2);
     }
 
-    @When("I click on {string}")
-    public void i_click_on(String buttonDescription) {
-        if (buttonDescription.equals("Accept Delivery button")) {
-            serenitySteps.clickOnElement(buttonDescription, homePage.getAcceptDeliveryButton());
-        } else if (buttonDescription.equals("My Account button")) {
-            serenitySteps.clickOnElement(buttonDescription, homePage.getMyAccountButton());
-        }
-    }
-
-    @When("I enter {string} in {string} field")
-    public void i_enter_in_field(String text, String fieldName) {
-        if (fieldName.equals("email")) {
-            serenitySteps.typeInField(text, fieldName, loginPage.getEmailField());
-        } else if (fieldName.equals("password")) {
-            serenitySteps.typeInField(text, fieldName, loginPage.getPasswordField());
-        }
+    @When("I login with email {string} and password {string}")
+    public void i_login_with_email_and_password(String email, String password) {
+        serenitySteps.userLogin(email, password);
     }
 
     @Then("I should see the message {string}")
     public void i_should_see_the_message(String expectedMessage) {
-        if(expectedMessage.equals("Hola, dagoberto.salas@walmart.com")){
+        if(expectedMessage.equals("Hola, Dagoberto")){
             validationSteps.validateElementMessage(expectedMessage, homePage.getGreetingMessage());
         }else if(expectedMessage.equals("No se ingresó un correo electrónico válido o tu contraseña es incorrecta.")){
             validationSteps.validateElementMessage(expectedMessage, loginPage.getAlertErrorDescription());
