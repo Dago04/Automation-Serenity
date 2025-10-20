@@ -9,8 +9,4 @@ public class ElementAssertions {
         element.shouldBeVisible();
         assertThat(element.getText().trim()).isEqualTo(expectedText.trim());
     }
-
-    public static void assertEnabled(WebElementFacade element) {
-        element.shouldBeEnabled();
-    }
 }

@@ -1,6 +1,7 @@
 package pageobjects;
 
 import actions.ElementActions;
+import assertions.ElementAssertions;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
@@ -20,10 +21,6 @@ public class HomePage extends PageObject {
     @FindBy(xpath = "(//*[@class='pr0     flex']/following::span[contains(normalize-space(.), 'Hola')])[2]")
     private WebElementFacade greetingMessage;
 
-    public WebElementFacade getGreetingMessage() {
-        return greetingMessage;
-    }
-
     public void selectDropdown(String valor, int index) {
         String xpathOpcion = String.format(
             "//*[text()='Selecciona donde deseas que entreguemos tu pedido']/following::select[%d]/option[normalize-space(text())='%s']",
@@ -41,5 +38,9 @@ public class HomePage extends PageObject {
 
     public void clickMyAccount(){
             ElementActions.safeClick(() -> bntMyAccount);
+    }
+
+    public void validateGreetingMessage(String expectedMessage){
+        ElementAssertions.assertVisibleWithText(greetingMessage, expectedMessage);
     }
 }

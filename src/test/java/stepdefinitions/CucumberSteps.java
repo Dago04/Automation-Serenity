@@ -15,14 +15,10 @@ public class CucumberSteps {
     @Steps
     ValidationSteps validationSteps;
 
-    HomePage homePage;
-    LoginPage loginPage;
-
     @Given("I navigate to the home page")
     public void i_navigate_to_the_home_page() {
         serenitySteps.navigateToHomePage();
     }
-
 
     @When("I select {string} and {string} for delivery location")
     public void i_select_for_delivery_location(String option1, String option2) {
@@ -33,13 +29,13 @@ public class CucumberSteps {
     public void i_login_with_email_and_password(String email, String password) {
         serenitySteps.userLogin(email, password);
     }
+    @Then("I validate invalid login message {string}")
+    public void i_validate_invalid_login_message(String expectedMessage) {
+        validationSteps.validateInvalidLoginMessage(expectedMessage);
+    }
 
-    @Then("I should see the message {string}")
-    public void i_should_see_the_message(String expectedMessage) {
-        if(expectedMessage.equals("Hola, Dagoberto")){
-            validationSteps.validateElementMessage(expectedMessage, homePage.getGreetingMessage());
-        }else if(expectedMessage.equals("No se ingresó un correo electrónico válido o tu contraseña es incorrecta.")){
-            validationSteps.validateElementMessage(expectedMessage, loginPage.getAlertErrorDescription());
-        }
+    @Then("I validate successful login message {string}")
+    public void i_validate_successful_login_with_message(String expectedMessage) {
+        validationSteps.validateSuccesfulLoginMessage(expectedMessage);
     }
 }
