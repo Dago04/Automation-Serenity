@@ -1,16 +1,19 @@
-Feature: Walmart Login and Navigation
-  As a user
-  I want to login to Walmart website
-  So that I can access my account
+Feature: Walmart GT Functional Tests
 
-  Scenario: Login with valid credentials
+  Background:
     Given I navigate to the home page
     When I select "El Progreso" and "El Progreso" for delivery location
-    And I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2L"
+
+  Scenario: Login with valid credentials
+    When I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2L"
     Then I validate successful login message "Hola, Dagoberto"
 
   Scenario: Login with invalid password
-    Given I navigate to the home page
-    When I select "El Progreso" and "El Progreso" for delivery location
-    And I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2LError"
+    When I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2LError"
     Then I validate invalid login message "No se ingresó un correo electrónico válido o tu contraseña es incorrecta."
+
+  Scenario: Sign off after successful login
+    When I login with email "Dagoberto.Salas@walmart.com" and password "G9t#x4VmZ8q@p2L"
+    And I sign off from the account
+    Then I validate login page is displayed with message "Inicia sesión o crea una cuenta"
+

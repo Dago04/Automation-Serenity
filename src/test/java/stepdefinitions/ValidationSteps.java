@@ -11,7 +11,7 @@ public class ValidationSteps extends UIInteractions {
     LoginPage loginPage;
 
     @Step("Validate successful login message {0}")
-    public void validateSuccesfulLoginMessage(String expectedMessage) {
+    public void validateSuccessfulLoginMessage(String expectedMessage) {
        homePage.validateGreetingMessage(expectedMessage);
     }
 
@@ -20,4 +20,8 @@ public class ValidationSteps extends UIInteractions {
         loginPage.validateAlertErrorMessage(expectedMessage);
     }
 
+    @Step("Validate login title {0}")
+    public void validateLoginTitle(String expectedMessage) {
+        loginPage.validateLoginTitle(expectedMessage);
+    }
 }

@@ -4,8 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-import pageobjects.HomePage;
-import pageobjects.LoginPage;
 
 public class CucumberSteps {
 
@@ -29,6 +27,12 @@ public class CucumberSteps {
     public void i_login_with_email_and_password(String email, String password) {
         serenitySteps.userLogin(email, password);
     }
+
+    @When("I sign off from the account")
+    public void i_sign_off_from_the_account() {
+        serenitySteps.signOff();
+    }
+
     @Then("I validate invalid login message {string}")
     public void i_validate_invalid_login_message(String expectedMessage) {
         validationSteps.validateInvalidLoginMessage(expectedMessage);
@@ -36,6 +40,11 @@ public class CucumberSteps {
 
     @Then("I validate successful login message {string}")
     public void i_validate_successful_login_with_message(String expectedMessage) {
-        validationSteps.validateSuccesfulLoginMessage(expectedMessage);
+        validationSteps.validateSuccessfulLoginMessage(expectedMessage);
+    }
+
+    @Then("I validate login page is displayed with message {string}")
+    public void i_validate_login_page_is_displayed_with_message(String expectedMessage) {
+        validationSteps.validateLoginTitle(expectedMessage);
     }
 }

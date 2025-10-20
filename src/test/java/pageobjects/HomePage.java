@@ -9,9 +9,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends PageObject {
 
-    @FindBy(xpath = "//*[text()='Selecciona donde deseas que entreguemos tu pedido']/following::select[1]")
-    private WebElementFacade departmentDropdown;
-
     @FindBy(xpath = "//*[text()='Aceptar']/ancestor::button[@type='button']")
     private WebElementFacade btnAcceptDelivery;
 
@@ -20,6 +17,12 @@ public class HomePage extends PageObject {
 
     @FindBy(xpath = "(//*[@class='pr0     flex']/following::span[contains(normalize-space(.), 'Hola')])[2]")
     private WebElementFacade greetingMessage;
+
+    @FindBy(xpath = "(//*[@class='pr0     flex']/following::span[contains(normalize-space(.), 'Hola')])[2]/ancestor::button")
+    private WebElementFacade btnGreetingMessage;
+
+    @FindBy(xpath = "//*[text()='Salir']/ancestor::button")
+    private WebElementFacade btnLogout;
 
     public void selectDropdown(String valor, int index) {
         String xpathOpcion = String.format(
@@ -38,6 +41,12 @@ public class HomePage extends PageObject {
 
     public void clickMyAccount(){
             ElementActions.safeClick(() -> bntMyAccount);
+    }
+
+    public void signOff(){
+        ElementActions.safeClick(() -> btnGreetingMessage);
+        ElementActions.safeClick(() -> btnLogout);
+        clickMyAccount();
     }
 
     public void validateGreetingMessage(String expectedMessage){

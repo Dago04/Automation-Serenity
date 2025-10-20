@@ -25,4 +25,9 @@ public class SerenitySteps extends UIInteractions {
         loginPage.userLogin(email, password);
     }
 
+    @Step("Sign off from user account")
+    public void signOff(){
+        homePage.signOff();
+    }
+
 }
