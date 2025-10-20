@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends PageObject {
 
+    ElementActions elementActions;
+
     @FindBy(xpath = "//*[text()='Aceptar']/ancestor::button[@type='button']")
     private WebElementFacade btnAcceptDelivery;
 
@@ -30,22 +32,22 @@ public class HomePage extends PageObject {
                 index, valor
         );
         WebElementFacade option = find(By.xpath(xpathOpcion));
-        ElementActions.safeClick(() -> option);
+        elementActions.safeClick(() -> option);
     }
 
     public void selectDeliveryLocation(String option1, String option2) {
         selectDropdown(option1, 1);
         selectDropdown(option2, 2);
-        ElementActions.safeClick(() -> btnAcceptDelivery);
+        elementActions.safeClick(() -> btnAcceptDelivery);
     }
 
     public void clickMyAccount(){
-            ElementActions.safeClick(() -> bntMyAccount);
+        elementActions.safeClick(() -> bntMyAccount);
     }
 
     public void signOff(){
-        ElementActions.safeClick(() -> btnGreetingMessage);
-        ElementActions.safeClick(() -> btnLogout);
+        elementActions.safeClick(() -> btnGreetingMessage);
+        elementActions.safeClick(() -> btnLogout);
         clickMyAccount();
     }
 

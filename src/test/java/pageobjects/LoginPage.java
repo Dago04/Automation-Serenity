@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageObject {
 
+    ElementActions elementActions;
     HomePage homePage;
 
     @FindBy(id = "email")
@@ -22,10 +23,18 @@ public class LoginPage extends PageObject {
     @FindBy(xpath = "//h3[text()='Inicia sesión o crea una cuenta']")
     private WebElementFacade loginTitle;
 
+    @FindBy(xpath = "//*[text()='Continuar']")
+    private WebElementFacade btnContinue;
+
+    @FindBy(xpath = "//*[text()='Iniciar sesión']")
+    private WebElementFacade btnLogin;
+
     public void userLogin(String email, String password){
         homePage.clickMyAccount();
-        ElementActions.safeType(() -> txtEmail, email);
-        ElementActions.safeType(() -> txtPassword, password);
+        elementActions.safeType(() -> txtEmail, email);
+        elementActions.safeClick(() -> btnContinue);
+        elementActions.safeType(() -> txtPassword, password);
+        elementActions.safeClick(() -> btnLogin);
     }
     public void validateAlertErrorMessage(String expectedMessage){
         ElementAssertions.assertVisibleWithText(alertErrorDescription, expectedMessage);
