@@ -1,14 +1,12 @@
-package stepdefinitions;
+package stepdefinitions.serenitysteps;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.steps.UIInteractions;
 import pageobjects.HomePage;
-import pageobjects.LoginPage;
 
-public class SerenitySteps extends UIInteractions {
+public class CommonSteps extends UIInteractions {
 
     HomePage homePage;
-    LoginPage loginPage;
 
     @Step("Navigate to the home page")
     public void navigateToHomePage() {
@@ -19,15 +17,8 @@ public class SerenitySteps extends UIInteractions {
     public void selectDeliveryLocation(String option1, String option2) {
         homePage.selectDeliveryLocation(option1, option2);
     }
-
-    @Step("User Login with email {0} and password {1}")
-    public void userLogin(String email, String password){
-        loginPage.userLogin(email, password);
+    @Step("Scroll to home products section")
+    public void scrollToHomeProductsSection() {
+        homePage.scrollToHomeProductsSection();
     }
-
-    @Step("Sign off from user account")
-    public void signOff(){
-        homePage.signOff();
-    }
-
 }
