@@ -17,8 +17,4 @@ public class CommonSteps extends UIInteractions {
     public void selectDeliveryLocation(String option1, String option2) {
         homePage.selectDeliveryLocation(option1, option2);
     }
-    @Step("Scroll to home products section")
-    public void scrollToHomeProductsSection() {
-        homePage.scrollToHomeProductsSection();
-    }
 }

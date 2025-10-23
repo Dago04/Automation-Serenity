@@ -3,8 +3,6 @@ package actions;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.steps.UIInteractions;
 import org.openqa.selenium.*;
-
-import java.time.Duration;
 import java.util.function.Supplier;
 
 public class ElementActions extends UIInteractions {
