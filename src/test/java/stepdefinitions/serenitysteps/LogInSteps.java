@@ -2,12 +2,10 @@ package stepdefinitions.serenitysteps;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.steps.UIInteractions;
-import pageobjects.HomePage;
 import pageobjects.LoginPage;
 
 public class LogInSteps extends UIInteractions {
 
-    HomePage homePage;
     LoginPage loginPage;
 
     @Step("Login with valid credentials")

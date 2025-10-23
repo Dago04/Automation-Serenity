@@ -30,7 +30,6 @@ public class ElementActions extends UIInteractions {
                     System.err.println("[safeClick] También falló el clic con JavaScript: " + jsException.getMessage());
                     if (i == retries - 1) throw e;
                 }
-                if (i == retries - 1) throw e;
             } catch (ElementClickInterceptedException e) {
                 System.err.println("[safeClick] El click fue interceptado, intentando con JavaScript en el intento " + (i + 1));
                 try {
@@ -133,11 +132,9 @@ public class ElementActions extends UIInteractions {
         for (int i = 0; i < retries; i++) {
             WebElementFacade element = elementSupplier.get();
             try {
-                // JavaScript executor como método principal
-                element.waitUntilVisible(); // Solo esperar que sea visible
+                element.waitUntilVisible();
                 ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", element);
                 System.out.println("[jsClick] Click ejecutado con JavaScript en intento " + (i + 1));
-                waitFor(1).seconds(); // Breve pausa para que procese el click
                 return;
             } catch (NoSuchElementException e) {
                 System.err.println("[jsClick] No se encontró el elemento en el intento " + (i + 1) + ": " + e.getMessage());

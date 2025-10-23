@@ -10,7 +10,6 @@ import waits.ElementWaits;
 public class LoginPage extends PageObject {
 
     ElementActions elementActions;
-    ElementWaits elementWaits;
     HomePage homePage;
 
     @FindBy(xpath = "//*[text()='Correo']/following-sibling::div[1]/input")

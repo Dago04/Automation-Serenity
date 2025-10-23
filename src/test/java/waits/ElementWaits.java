@@ -4,9 +4,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 import static net.serenitybdd.core.Serenity.getDriver;
 
 public class ElementWaits {

@@ -26,9 +26,6 @@ public class HomePage extends PageObject {
     @FindBy(xpath = "//*[text()='Salir']/ancestor::button")
     private WebElementFacade btnLogout;
 
-    @FindBy(xpath = "//span[text()='Frescos']")
-    private WebElementFacade sectionHomeProducts;
-
     public void selectDropdown(String valor, int index) {
         String xpathOpcion = String.format(
             "//*[text()='Selecciona donde deseas que entreguemos tu pedido']/following::select[%d]/option[normalize-space(text())='%s']",
