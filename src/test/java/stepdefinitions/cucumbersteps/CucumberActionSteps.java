@@ -6,6 +6,7 @@ import net.serenitybdd.annotations.Steps;
 import stepdefinitions.serenitysteps.CommonSteps;
 import stepdefinitions.serenitysteps.HomeSteps;
 import stepdefinitions.serenitysteps.LogInSteps;
+import stepdefinitions.serenitysteps.WorldSectionSteps;
 
 public class CucumberActionSteps {
 
@@ -15,6 +16,8 @@ public class CucumberActionSteps {
     HomeSteps homeSteps;
     @Steps
     CommonSteps commonSteps;
+    @Steps
+    WorldSectionSteps worldSectionSteps;
 
     @Given("I navigate to the home page")
     public void i_navigate_to_the_home_page() {
@@ -30,6 +33,7 @@ public class CucumberActionSteps {
     public void i_login_with_valid_credentials() {
         logInSignOffSteps.loginWithValidCredentials();
     }
+
     @When("I login with invalid password credentials")
     public void i_login_with_invalid_password_credentials() {
         logInSignOffSteps.loginWithInvalidCredentials();
@@ -38,6 +42,11 @@ public class CucumberActionSteps {
     @When("I sign off from the account")
     public void i_sign_off_from_the_account() {
         homeSteps.signOff();
+    }
+
+    @When("The user navigates to a specific world section {string}")
+    public void the_user_navigates_to_a_specific_world_section(String worldName) {
+        worldSectionSteps.navigateToWorldSection(worldName);
     }
 
 }

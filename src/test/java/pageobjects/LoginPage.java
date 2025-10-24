@@ -42,11 +42,11 @@ public class LoginPage extends PageObject {
 
             elementActions.safeType(() -> txtEmail, email);
             elementActions.jsClick(() -> btnContinue);
-            if (!ElementWaits.waitForElementVisibility(txtPassword, 6, true, attempt, maxRetries)) continue;
+            if (!ElementWaits.waitForElementVisibility(txtPassword, 6, attempt, maxRetries)) continue;
 
             elementActions.safeType(() -> txtPassword, password);
             elementActions.jsClick(() -> btnLogin);
-            if (ElementWaits.waitForElementVisibility(homePage.getGreetingMessage(), 6,true, attempt, maxRetries)) {
+            if (ElementWaits.waitForElementVisibility(homePage.getGreetingMessage(), 6, attempt, maxRetries)) {
                 return;
             }
         }
@@ -64,11 +64,11 @@ public class LoginPage extends PageObject {
 
             elementActions.safeType(() -> txtEmail, email);
             elementActions.jsClick(() -> btnContinue);
-            if (!ElementWaits.waitForElementVisibility(txtPassword, 6, true, attempt, maxRetries)) continue;
+            if (!ElementWaits.waitForElementVisibility(txtPassword, 6, attempt, maxRetries)) continue;
 
             elementActions.safeType(() -> txtPassword, password);
             elementActions.jsClick(() -> btnLogin);
-            if (ElementWaits.waitForElementVisibility(alertErrorDescription, 6,true, attempt, maxRetries)) {
+            if (ElementWaits.waitForElementVisibility(alertErrorDescription, 6, attempt, maxRetries)) {
                 return;
             }
         }

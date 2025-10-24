@@ -17,3 +17,7 @@ Feature: Walmart GT Functional Tests
     And I sign off from the account
     Then I validate login page is displayed with message "Inicia sesión o crea una cuenta"
 
+  @worldSectionNavigation
+  Scenario: Navigate to a world section and validate navigation
+    When  The user navigates to a specific world section "abarrotes"
+    Then The correct page for the world section "abarrotes" should be displayed

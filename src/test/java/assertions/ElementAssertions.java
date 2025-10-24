@@ -1,10 +1,7 @@
 package assertions;
 
 import net.serenitybdd.core.pages.WebElementFacade;
-
-import java.time.Duration;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ElementAssertions {
 
@@ -17,5 +14,11 @@ public class ElementAssertions {
     public static void assertVisible(WebElementFacade element) {
         element.waitUntilVisible();
         element.shouldBeVisible();
+    }
+
+    public static void assertUrlContains(String expectedUrl, String expectedUrlPart) {
+        assertThat(expectedUrl)
+                .as("Validating that the URL contains the expected part")
+                .containsIgnoringCase(expectedUrlPart);
     }
 }
