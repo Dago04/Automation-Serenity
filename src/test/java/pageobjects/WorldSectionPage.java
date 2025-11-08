@@ -55,7 +55,11 @@ public class WorldSectionPage extends PageObject {
 
     public void validateWorldSectionIsDisplayed(String worldName) {
         String currentUrl = getDriver().getCurrentUrl();
-        ElementAssertions.assertUrlContains(currentUrl, worldName);
+        try {
+            ElementAssertions.assertUrlContains(currentUrl, worldName);
+        } catch (Exception e) {
+            throw new AssertionError("❌ Error validating URL contains world section name", e);
+        }
     }
 
     private void waitForPageToLoad() {
