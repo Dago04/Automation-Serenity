@@ -19,5 +19,6 @@ Feature: Walmart GT Functional Tests
 
   @worldSectionNavigation
   Scenario: Navigate to a world section and validate navigation
-    When  The user navigates to a specific world section "abarrotes"
-    Then The correct page for the world section "abarrotes" should be displayed
+    When I login with valid credentials
+    And  The user navigates to a specific world section "mundo-deportes"
+    Then The correct page for the world section "mundo-deportes" should be displayed
