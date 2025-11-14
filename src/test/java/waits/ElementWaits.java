@@ -1,6 +1,7 @@
 package waits;
 
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,5 +22,13 @@ public class ElementWaits {
             }
             return false;
         }
+    }
+
+    public static void waitForPageLoad(int waitTime) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(waitTime));
+        wait.until(driver -> {
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+            return jsExecutor.executeScript("return document.readyState").equals("complete");
+        });
     }
 }

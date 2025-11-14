@@ -14,6 +14,7 @@ Feature: Walmart GT Functional Tests
 
   Scenario: Sign off after successful login
     When The user performs a login with valid credentials
+    Then The user should see a element with the text "Hola" displayed
     And The user signs off from the account
     Then The user should see a element with the text "Entrar" displayed
 
