@@ -2,10 +2,7 @@ package stepdefinitions.cucumbersteps;
 
 import io.cucumber.java.en.Then;
 import net.serenitybdd.annotations.Steps;
-import stepdefinitions.serenitysteps.CommonSteps;
-import stepdefinitions.serenitysteps.HomeSteps;
-import stepdefinitions.serenitysteps.LogInSteps;
-import stepdefinitions.serenitysteps.WorldSectionSteps;
+import stepdefinitions.serenitysteps.*;
 
 public class CucumberAssertionSteps {
 
@@ -15,6 +12,8 @@ public class CucumberAssertionSteps {
     HomeSteps homeSteps;
     @Steps
     WorldSectionSteps worldSectionSteps;
+    @Steps
+    HomeProductsCategorySteps homeProductsCategorySteps;
 
     @Then("I validate invalid login message {string}")
     public void i_validate_invalid_login_message(String expectedMessage) {
@@ -34,6 +33,11 @@ public class CucumberAssertionSteps {
     @Then("The correct page for the world section {string} should be displayed")
     public void the_correct_page_for_the_world_section_should_be_displayed(String expectedUrlPart) {
         worldSectionSteps.validateWorldSectionIsDisplayed(expectedUrlPart);
+    }
+
+    @Then("The selected product category should be {string}")
+    public void the_selected_product_category_should_be(String expectedCategoryName) {
+        homeProductsCategorySteps.validateSelectedCategory(expectedCategoryName);
     }
 }
 

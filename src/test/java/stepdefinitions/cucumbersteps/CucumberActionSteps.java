@@ -3,10 +3,7 @@ package stepdefinitions.cucumbersteps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-import stepdefinitions.serenitysteps.CommonSteps;
-import stepdefinitions.serenitysteps.HomeSteps;
-import stepdefinitions.serenitysteps.LogInSteps;
-import stepdefinitions.serenitysteps.WorldSectionSteps;
+import stepdefinitions.serenitysteps.*;
 
 public class CucumberActionSteps {
 
@@ -18,6 +15,8 @@ public class CucumberActionSteps {
     CommonSteps commonSteps;
     @Steps
     WorldSectionSteps worldSectionSteps;
+    @Steps
+    HomeProductsCategorySteps homeProductsCategorySteps;
 
     @Given("I navigate to the home page")
     public void i_navigate_to_the_home_page() {
@@ -47,6 +46,11 @@ public class CucumberActionSteps {
     @When("The user navigates to a specific world section {string}")
     public void the_user_navigates_to_a_specific_world_section(String worldName) {
         worldSectionSteps.navigateToWorldSection(worldName);
+    }
+
+    @When("The user selects a specific product category {string}")
+    public void the(String categoryName) {
+        homeProductsCategorySteps.selectProductCategory(categoryName);
     }
 
 }

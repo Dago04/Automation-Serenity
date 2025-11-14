@@ -21,4 +21,10 @@ public class ElementAssertions {
                 .as("Validating that the URL contains the expected part")
                 .containsIgnoringCase(expectedUrlPart);
     }
+
+    public static void assertEqualsText(String actual, String expected) {
+        assertThat(actual)
+                .as("Validating that the selected category matches the expected name")
+                .isEqualTo(expected);
+    }
 }

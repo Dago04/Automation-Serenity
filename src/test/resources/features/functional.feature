@@ -19,6 +19,16 @@ Feature: Walmart GT Functional Tests
 
   @worldSectionNavigation
   Scenario: Navigate to a world section and validate navigation
-    When I login with valid credentials
-    And  The user navigates to a specific world section "mundo-deportes"
+    When  The user navigates to a specific world section "mundo-deportes"
     Then The correct page for the world section "mundo-deportes" should be displayed
+
+  @homeProductCategory
+  Scenario Outline: The user selects a product category from home page
+    When The user selects a specific product category "<categoryName>"
+    Then The selected product category should be "<categoryName>"
+
+    Examples:
+      | categoryName          |
+      | Línea Blanca          |
+      | Celulares y Pantallas |
+      | Todo para el Hogar    |

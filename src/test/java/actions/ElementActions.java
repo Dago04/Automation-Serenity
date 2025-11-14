@@ -80,7 +80,7 @@ public class ElementActions extends UIInteractions {
     }
 
     public void scrollToElement(Supplier<WebElementFacade> elementSupplier) {
-        int maxRetries = 5;
+        int maxRetries = 1;
         int scrollAttempts = 10;
 
         for (int retry = 0; retry < maxRetries; retry++) {
@@ -89,7 +89,7 @@ public class ElementActions extends UIInteractions {
                 if (element.isCurrentlyVisible()) {
                     ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(300);
                     } catch (InterruptedException ignored) {
                     }
                     return;
@@ -106,7 +106,7 @@ public class ElementActions extends UIInteractions {
                     WebElementFacade element = elementSupplier.get();
                     if (element.isCurrentlyVisible()) {
                         ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
-                        Thread.sleep(500);
+                        Thread.sleep(300);
                         return;
                     }
                 } catch (NoSuchElementException | TimeoutException e) {
@@ -118,7 +118,7 @@ public class ElementActions extends UIInteractions {
                 System.out.println("[scrollToElement] Volviendo al inicio de la página para reintentar...");
                 ((JavascriptExecutor) getDriver()).executeScript("window.scrollTo(0, 0);");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException ignored) {
                 }
             }
