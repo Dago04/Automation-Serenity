@@ -10,10 +10,4 @@ public class HomeSteps {
     public void signOff(){
         homePage.signOff();
     }
-
-    @Step("Validate successful login message {0}")
-    public void validateSuccessfulLoginMessage(String expectedMessage) {
-        homePage.validateGreetingMessage(expectedMessage);
-    }
-
 }

@@ -7,7 +7,6 @@ public class ElementAssertions {
 
     public static void assertWithText(WebElementFacade element, String expectedText) {
         element.waitUntilVisible();
-        element.waitUntilPresent();
         element.shouldContainText(expectedText);
     }
 

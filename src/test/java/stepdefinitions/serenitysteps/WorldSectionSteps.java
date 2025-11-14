@@ -14,9 +14,7 @@ public class WorldSectionSteps {
 
     @Step("Validate the world section {0} is displayed")
     public void validateWorldSectionIsDisplayed(String expectedUrlPart) {
-
         worldSectionPage.validateWorldSectionIsDisplayed(expectedUrlPart);
-
     }
 }
 

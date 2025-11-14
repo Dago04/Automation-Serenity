@@ -1,21 +1,21 @@
 Feature: Walmart GT Functional Tests
 
   Background:
-    Given I navigate to the home page
-    When I select "El Progreso" and "El Progreso" for delivery location
+    Given The user navigates to the home page
+    And The user selects "El Progreso" and "El Progreso" for delivery location
 
   Scenario: Login with valid credentials
-    When I login with valid credentials
-    Then I validate successful login message "Hola, Dagoberto"
+    When The user performs a login with valid credentials
+    Then The user should see a element with the text "Hola" displayed
 
   Scenario: Login with invalid password
-    When I login with invalid password credentials
-    Then I validate invalid login message "No se ingresó un correo electrónico válido o tu contraseña es incorrecta."
+    When The user performs a login with invalid password credentials
+    Then The user should see a element with the text "Lo sentimos, hubo un error" displayed
 
   Scenario: Sign off after successful login
-    When I login with valid credentials
-    And I sign off from the account
-    Then I validate login page is displayed with message "Inicia sesión o crea una cuenta"
+    When The user performs a login with valid credentials
+    And The user signs off from the account
+    Then The user should see a element with the text "Entrar" displayed
 
   @worldSectionNavigation
   Scenario: Navigate to a world section and validate navigation

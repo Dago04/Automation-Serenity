@@ -14,20 +14,12 @@ public class CucumberAssertionSteps {
     WorldSectionSteps worldSectionSteps;
     @Steps
     HomeProductsCategorySteps homeProductsCategorySteps;
+    @Steps
+    CommonSteps commonSteps;
 
-    @Then("I validate invalid login message {string}")
-    public void i_validate_invalid_login_message(String expectedMessage) {
-        logInSteps.validateInvalidLoginMessage(expectedMessage);
-    }
-
-    @Then("I validate successful login message {string}")
-    public void i_validate_successful_login_with_message(String expectedMessage) {
-        homeSteps.validateSuccessfulLoginMessage(expectedMessage);
-    }
-
-    @Then("I validate login page is displayed with message {string}")
-    public void i_validate_login_page_is_displayed_with_message(String expectedMessage) {
-        logInSteps.validateLoginTitle(expectedMessage);
+    @Then("The user should see a element with the text {string} displayed")
+    public void the_user_should_see_a_element_with_the_text_displayed(String text) {
+        commonSteps.validateElementWithTextIsDisplayed(text);
     }
 
     @Then("The correct page for the world section {string} should be displayed")

@@ -156,4 +156,8 @@ public class ElementActions extends UIInteractions {
         }
     }
 
+    public WebElementFacade getElementByText(String text){
+        String xpath = String.format("//*[contains(text(),'%s')]", text);
+        return find(By.xpath(xpath));
+    }
 }

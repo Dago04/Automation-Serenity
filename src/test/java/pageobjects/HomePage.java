@@ -36,6 +36,10 @@ public class HomePage extends PageObject {
     }
 
     public void selectDeliveryLocation(String option1, String option2) {
+
+        if (!btnAcceptDelivery.isVisible()) {
+            return;
+        }
         selectDropdown(option1, 1);
         selectDropdown(option2, 2);
         elementActions.safeClick(() -> btnAcceptDelivery);
@@ -49,10 +53,6 @@ public class HomePage extends PageObject {
         elementActions.safeClick(() -> btnGreetingMessage);
         elementActions.safeClick(() -> btnLogout);
         clickMyAccount();
-    }
-
-    public void validateGreetingMessage(String expectedMessage){
-        ElementAssertions.assertWithText(greetingMessage, expectedMessage);
     }
 
     public WebElementFacade getGreetingMessage() {

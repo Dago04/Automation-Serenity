@@ -18,28 +18,28 @@ public class CucumberActionSteps {
     @Steps
     HomeProductsCategorySteps homeProductsCategorySteps;
 
-    @Given("I navigate to the home page")
-    public void i_navigate_to_the_home_page() {
+    @Given("The user navigates to the home page")
+    public void the_user_navigates_to_the_home_page() {
         commonSteps.navigateToHomePage();
     }
 
-    @When("I select {string} and {string} for delivery location")
-    public void i_select_for_delivery_location(String option1, String option2) {
+    @Given("The user selects {string} and {string} for delivery location")
+    public void the_user_selects_for_delivery_location(String option1, String option2) {
         commonSteps.selectDeliveryLocation(option1, option2);
     }
 
-    @When("I login with valid credentials")
-    public void i_login_with_valid_credentials() {
+    @When("The user performs a login with valid credentials")
+    public void login_with_valid_credentials() {
         logInSignOffSteps.loginWithValidCredentials();
     }
 
-    @When("I login with invalid password credentials")
-    public void i_login_with_invalid_password_credentials() {
+    @When("The user performs a login with invalid password credentials")
+    public void login_with_invalid_credentials() {
         logInSignOffSteps.loginWithInvalidCredentials();
     }
 
-    @When("I sign off from the account")
-    public void i_sign_off_from_the_account() {
+    @When("The user signs off from the account")
+    public void the_user_signs_off_from_the_account() {
         homeSteps.signOff();
     }
 

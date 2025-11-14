@@ -21,14 +21,4 @@ public class LogInSteps extends UIInteractions {
         String password = "G9t#x4VmZ8q@p2LTest";
         loginPage.loginWithInvalidCredentials(email, password);
     }
-
-    @Step("Validate invalid login error message {0}")
-    public void validateInvalidLoginMessage(String expectedMessage) {
-        loginPage.validateAlertErrorMessage(expectedMessage);
-    }
-    @Step("Validate login title {0}")
-    public void validateLoginTitle(String expectedMessage) {
-        loginPage.validateLoginTitle(expectedMessage);
-    }
-
 }
